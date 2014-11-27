@@ -16,6 +16,7 @@ QString ScriptTools::loadPage(QString surl)
 	QNetworkAccessManager manager;
 	QNetworkRequest request;
 	request.setUrl(url);
+	request.setAttribute(QNetworkRequest::CacheLoadControlAttribute, QNetworkRequest::PreferCache);
 	QNetworkReply *reply = manager.get(request);
 
 	QEventLoop loop;

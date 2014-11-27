@@ -76,9 +76,11 @@ void MainWindow::updatePlugin()
 		QString ext = file.right(file.length() - extPos - 1);;
 		QString result = engine.evaluate("rename('"+filename+"', '"+ext+"', '"+file+"', "+QString::number(position)+")").toString();
 
-		m_files[file] = result;
+		m_files[file] = result.isEmpty() ? file : result;
 		ui->listAfter->addItem(m_files.value(file));
-		if (result != file)
+		if (result.isEmpty())
+			ui->listAfter->item(position)->setForeground(QColor(128, 64, 64));
+		else if (result != file)
 			ui->listAfter->item(position)->setForeground(QColor(0, 128, 0));
 
 		position++;
