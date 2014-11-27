@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,16 +10,87 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
+    <item>
+     <layout class="QFormLayout" name="layoutForm">
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboPlugin"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelPlugin">
+        <property name="text">
+         <string>Plugin</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="layoutLists">
+      <item>
+       <widget class="QListWidget" name="listBefore"/>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listAfter"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="layoutButtons">
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>Rename</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>rename()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>397</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboPlugin</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updatePlugin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>81</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>rename()</slot>
+  <slot>updatePlugin()</slot>
+ </slots>
 </ui>

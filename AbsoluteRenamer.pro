@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui script network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,9 +14,11 @@ RC_FILE = icon.rc
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+        scripttools.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+        scripttools.h
 
 FORMS    += mainwindow.ui
 
